@@ -1,0 +1,852 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Boogaloo', cursive;
+}
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+$mainBlue: #0081ff;
+$skyBlue: #00aeed;
+$grayBlue: #3b4374;
+$servicesBg: #007af3;
+$gray: #575757;
+
+body {
+    @include flex();
+    flex-direction: column;
+    background-color: black;
+}
+.main {
+    width: 100%;
+    background-color: black;
+}
+.header {
+    @include flex();
+    position: relative;
+    flex-direction: column;
+    background-image: url(img/headerLayer.png);
+    background-position: left;
+    background-size: cover;
+    overflow: hidden;
+    padding: 1em 1em 3em 1em;
+    &__topBox {
+        @include flex();
+        justify-content: space-between;
+        flex: 1;
+        width: 100%;
+        z-index: 2;
+    }
+    &__logo {
+        font-size: 1.2em;
+    }
+    &__title {
+        color: white;
+    }
+    &__title--color {
+        color: $mainBlue;
+    }
+    &__hamburger, &__cross {
+        font-size: 2.9em;
+        color: $mainBlue;
+        line-height: 1;
+        cursor: pointer;
+    }
+    &__navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(0, 0, 0);
+        z-index: 999;
+    }
+    &__cross {
+        position: absolute;
+        top: .1em;
+        right: .2em;
+        font-size: 2.8em;
+    }
+    &__element {
+        text-decoration: none;
+        color: white;
+        font-size: 2em;
+        outline: none;
+        z-index: 999;
+        &:hover, &:focus {
+            color: $skyBlue;
+        }
+    }
+    &__banner {
+        @include flex();
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        flex: 7;
+        width: 100%;
+        color: white;
+        text-align: center;
+        padding-top: 3em;
+        z-index: 1;
+    }
+    &__caption {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8em;
+    }
+    &__introduce {
+        font-size: 1.6em;
+    }
+    &__introduce:nth-child(3) {
+        font-size: 1.2em;
+        font-weight: 100;
+    }
+    &__text-box {
+        text-align: left;
+        margin-bottom: 5em;
+    }
+    &__description {
+        text-align: left;
+        width: calc(80% - 20vw);
+    }
+    &__button {
+        background-color: $skyBlue;
+        color: white;
+        border: none;
+        width: 7em;
+        border-radius: 1.5em;
+        font-size: 1.3em;
+        line-height: 1.8;
+        margin-top: 2em;
+        transition: 1s ease;
+        cursor: pointer;
+        &:hover {
+            background-color: #003c52;
+        }
+    }
+    &__image {
+        position: absolute;
+        top: 23%;
+        right: -5em;
+        width: 20em;
+        height: 24em;
+        z-index: 1;
+    }
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.795);
+        z-index: 1;
+    }
+}
+.about {
+    @include flex();
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: $mainBlue;
+    color: white;
+    padding: 1em 1em;
+    
+    &__mainBox {
+        @include flex;
+        flex-direction: column;
+    }
+    &__caption {
+        margin-bottom: 1em;
+        justify-content: flex-start;
+    }
+    &__introduce {
+        margin-bottom: 1em;
+        font-size: 1.5em;
+    }
+    &__description {
+        text-align: left;
+        width: 100%;
+    }
+    &__button {
+        background-color: $grayBlue;
+        &:hover {
+            background-color: #1b1f36;
+        }
+    }
+}
+.services {
+    @include flex();
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $servicesBg;
+    color: white;
+    padding: 1em 1em;
+    &__box {
+        @include flex();
+        flex-direction: column;
+        text-align: center;
+        margin: 1.5em 0;
+    }
+    &__heading {
+        @include flex();
+        justify-content: flex-start;
+        width: 100%;
+    }
+    &__icon {
+        // @include flex();
+        width: 2em;
+        height: auto;
+        margin-right: 1em;
+    }
+    &__title {
+        // @include flex();
+        font-size: 1em;
+        text-transform: uppercase;
+    }
+    &__description {
+        width: 100%;
+        margin: .5em 0;
+    }
+}
+.profile {
+    background-color: white;
+    width: 100%;
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 4fr 4fr 4fr 7fr 6fr 4fr;
+    }
+    &__heading {
+        @include flex();
+        flex-direction: column;
+        padding: 1em;
+    }
+    &__caption {
+        color: $gray;
+    }
+    &__element {
+        @include flex();
+        position: relative;
+        background-color: white;
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        min-height: 80vw;
+    }
+    
+    &__element:nth-child(2) {
+        background-image: url(img/profilePhoto1.png);
+    }
+    &__element:nth-child(3) {
+        background-image: url(img/profilePhoto2.png);
+    }
+    &__element:nth-child(4) {
+        background-image: url(img/profilePhoto3.png);
+    }
+    &__element:nth-child(5) {
+        background-image: url(img/profilePhoto4.png);
+    }
+    &__element:nth-child(6) {
+        background-image: url(img/profilePhoto5.png);
+    }
+    &__element:nth-child(7) {
+        background-image: url(img/profilePhoto6.png);
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #28deeb8a;
+    }
+}
+.client {
+    @include flex();
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1em;
+    background-image: url(img/clientLayer.png);
+    background-position: center;
+    background-size: cover;
+    &__content {
+        @include flex();
+        flex-direction: column;
+        color: white;
+        z-index: 1;
+    }
+    &__box {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: .5em;
+        width: 100%;
+        z-index: 1;
+    }
+    &__element {
+        @include flex();
+        color: white;
+        padding: .7em;
+    }
+    &__image {
+        width: 12em;
+        height: auto;
+    }
+    &__description {
+        margin-top: 1em;
+        width: 100%;
+        text-align: center;
+    }
+}
+.blog {
+    background-color: white;
+    &__box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 1fr);
+    }
+    &__element {
+        @include flex();
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        min-height: 40vw;
+        padding: 1em;
+    }
+    &__element:first-child {
+        background-color: white;
+        grid-area: 1/1/2/3;
+    }
+    &__element:nth-child(2) {
+        background-color:  $mainBlue;
+        grid-area: 2/1/3/3;
+        color: white;
+    }
+    &__element:nth-child(3) {
+        background-color: #eaeaea;
+        grid-area: 3/1/4/2;
+        color: #353535;
+    }
+    &__element:nth-child(4) {
+        background-color: black;
+        grid-area: 3/2/4/3;
+        color: white;
+    }
+    &__element:nth-child(5) {
+        position: relative;
+        background-image: url(img/blogElementLayer.png);
+        background-size: cover;
+        background-position: center;
+        grid-area: 4/1/6/3;
+        color: white;
+    }
+    &__element:nth-child(6) {
+        background-color: #e91d62;
+        grid-area: 6/1/7/3;
+        color: white;
+    }
+    &__description, &__subtitle, &__text-box, &__caption {
+        text-align: center;
+        width: 100%;
+        z-index: 1;
+    }
+    &__text-box {
+        margin: 0;
+    }  
+}
+.footer {
+    @include flex();
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    background-image: url(img/footerLayer.png);
+    background-position: center;
+    background-size: cover;
+    color: white;
+    padding: 1em 1em .7em 1em;
+    &__background {
+        background-color: rgba(0, 0, 0, 0.904);
+    }
+    &__box {
+        @include flex();
+        flex-direction: column;
+        width: 100%;
+        z-index: 1;
+    }
+    &__info {
+        @include flex();
+        flex-direction: column;
+        width: 100%;
+        z-index: 1;
+    }
+    &__element {
+        @include flex();
+        justify-content: center;
+        width: 100%;
+        margin: 1em 0;
+    }
+    &__title {
+        margin-bottom: .5em; 
+    }
+    &__iconBox {
+        @include flex();
+        width: 10em;
+        margin-right: 1em;
+        padding-left: 3em;
+    }
+    &__content {
+        width: 12em;
+    }
+    &__caption {
+        z-index: 1;
+        margin-bottom: .5em;
+    }
+    &__contact {
+        @include flex();
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2em;
+        z-index: 1;
+    }
+    &__form {
+        @include flex();
+        flex-direction: column;
+        justify-content: space-between;
+        width: 17em
+    }
+    &__label {
+        @include flex();
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        margin: .3em;
+    }
+    &__input, &__textarea {
+        width: 80%;
+        height: 2em;
+        background-color: #2b2b2b;
+        border: none;
+        border-radius: .9em;
+        color: white;
+        font-size: .8em;
+        padding-left: .5em;
+    }
+    &__textarea {
+        height: 10em;
+        padding: .5em;
+    }
+    &__button {
+        margin-top: 1em;
+    }
+    &__social {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: 1em;
+        width: 100%;
+        margin: 5em 0;
+        z-index: 1;
+    }
+    &__link {
+        @include flex();
+        width: 3em;
+        height: 3em;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: .1em solid white;
+        color: white;
+        cursor: pointer;
+    }
+    &__description {
+        z-index: 1;
+    }
+    &__endText {
+        margin-bottom: .5em;
+        z-index: 1;
+    }
+}
+.arrow {
+    @include flex();
+    position: fixed;
+    bottom: .3em;
+    right: .3em;
+    width: 1em;
+    height: 1em;
+    background-color: #00b7ff80;
+    color: white;
+    border-radius: .2em;
+    box-shadow: 0 0 .1em .01em black;
+    font-size: 3em;
+    transition: .5s ease-in-out;
+    z-index: 9999999;
+    cursor: pointer;
+    &:hover {
+        background-color: #00b7ff;
+        color: $grayBlue;
+    }
+}
+
+
+@media (min-width: 568px) {
+    html {
+        font-size: 1.1rem;
+    }
+    .header {
+        &__description {
+            width: 15em;
+        }
+    }
+    .about {
+        &__mainBox {
+            width: 32em;
+        }
+        &__description {
+            width: 100%;
+        }
+    }
+    .services {
+        &__container {
+            width: 100%;
+        }
+        &__box {
+            width: 32em;
+        }
+        &__description {
+            width: 100%;
+        }
+    }
+    .client {
+        &__image {
+            width: 14em;
+        }
+        &__description {
+            width: 100%;
+            text-align: center;
+        }
+        &__box {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+    }
+    .blog {
+        &__caption {
+            font-size: 1.5rem;
+        }
+        &__subtitle {
+            font-size: 2rem;
+        }
+        &__description {
+            width: 25em;
+        }
+        &__text-box {
+            @include flex();
+            justify-content: space-around;
+            flex-direction: column;
+        }
+    }
+    .footer {
+        &__form {
+            width: 22em
+        }
+        &__social {
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            width: 90%;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .header {
+        padding: 1em 4em 3em 4em;
+        &__image {
+            right: 2em;
+        }
+        &__description {
+            width: 16em;
+        }
+    }
+    .about {
+        padding: 1em 4em 3em 4em;
+
+        &__mainBox {
+            justify-content: space-between;
+            flex-direction: row;
+            width: 100%;
+        }
+        &__leftBox, &__rightBox {
+            width: 45%;
+        }
+        &__introduce {
+            text-align: left;
+        }
+    }
+    .services {
+        padding: 1em 4em 3em 4em;
+        &__container {
+            @include flex();
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        &__introduce, &__caption {
+            align-self: center;
+        }
+        &__box {
+            width: 32%;
+        }
+        &__description {
+            width: 100%;
+        }
+    }
+    .profile {
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 2fr 4fr 3fr 4fr 3fr;
+        }
+
+        &__element {
+            min-height: 40vw;
+        }
+
+        &__heading {
+            grid-area: 1/1/2/3;
+        }
+
+        &__element:nth-child(2) {
+            grid-area: 2/1/3/3;
+        }
+
+        &__element:nth-child(3) {
+            grid-area: 3/1/4/2;
+        }
+
+        &__element:nth-child(4) {
+            grid-area: 3/2/4/3;
+        }
+
+        &__element:nth-child(5) {
+            grid-area: 4/1/6/2;
+        }
+
+        &__element:nth-child(6) {
+            grid-area: 4/2/5/3;
+        }
+
+        &__element:nth-child(7) {
+            grid-area: 5/2/6/3;
+        }
+    }
+    .client {
+        padding: 1em 4em 3em 4em;
+        &__description {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .blog {
+        font-size: .8rem;
+        &__caption {
+            font-size: 1.3rem;
+        }
+        &__subtitle {
+            font-size: 1.8rem;
+        }
+        &__description {
+            width: 25em;
+        }
+        &__box {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+        &__element {
+            min-height: 20vw;
+            padding: 1em;
+        }
+        &__element:first-child {
+            grid-area: 1/1/2/3;
+        }
+        &__element:nth-child(2) {
+            grid-area: 2/1/3/3;
+        }
+        &__element:nth-child(3) {
+            grid-area: 3/1/4/2;
+        }
+        &__element:nth-child(4) {
+            grid-area: 3/2/4/3;
+        }
+        &__element:nth-child(5) {
+            grid-area: 1/3/3/5;
+        }
+        &__element:nth-child(6) {
+            grid-area: 3/3/4/5;
+        }
+        &__description, &__subtitle, &__text-box, &__caption {
+            text-align: center;
+        }
+    }   
+    .footer {
+        &__box {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        &__contact {
+            margin: 0;
+        }
+        &__form {
+            width: 80%;
+        }
+    }
+}
+@media (min-width: 1000px) {
+    .header {
+        padding: 1em 6em 3em 6em;
+        &__description {
+            width: 20em;
+        }
+        &__image {
+            right: 6em;
+        }
+    }
+    .about {
+        padding: 1em 6em 3em 6em;
+    }
+    .services {
+        padding: 1em 6em 3em 6em;
+        &__description {
+            width: 100%;
+        }
+    }
+    .profile {
+        &__grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 3fr 4fr 3fr;
+        }
+        &__element {
+            min-height: 20vw;
+        }
+        &__heading {
+            grid-area: 1/1/2/5;
+        }
+        &__element:nth-child(2) {
+            grid-area: 2/1/3/3;
+        }
+        &__element:nth-child(3) {
+            grid-area: 3/1/4/2;
+        }
+        &__element:nth-child(4) {
+            grid-area: 3/2/4/3;
+        }
+        &__element:nth-child(5) {
+            grid-area: 2/3/4/4;
+        }
+        &__element:nth-child(6) {
+            grid-area: 2/4/3/5;
+        }
+        &__element:nth-child(7) {
+            grid-area: 3/4/4/5;
+        }
+    }
+    .client {
+        &__image {
+            width: 10em;
+        }
+        &__box {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+        }
+    }
+    .blog {
+        font-size: 1.2rem;
+    }
+    .footer {
+        &__social {
+            width: 70%;
+        }
+    }
+}
+@media (min-width: 1200px) {
+    html {
+        font-size: 1.2rem ;
+    }
+    .main {
+       width: 1200px;
+    }
+    .header {
+        &__topBox {
+            flex: none;
+        }
+        &__hamburger, &__cross {
+            display: none;
+        }
+        &__navbar {
+            justify-content: space-around;
+            flex-direction: row;
+            width: 60%;
+            position: unset;
+            background-color: transparent;
+        }
+        &__title {
+            font-size: 1.3em;
+        }
+        &__element {
+            position: relative;
+            @include flex();
+            font-size: 1em;
+            line-height: 6;
+            height: 100%;
+            text-transform: uppercase;
+            padding: auto;
+            margin: 0;
+            transition: .2s ease-in-out;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: .3em;
+                background-color: transparent;
+                top: 0;
+                transition: .5s ease;
+            }
+            &:hover {
+                color: white;
+            }
+            &:hover::before {
+                background-color: $skyBlue;
+            }
+        }
+    }
+    .profile {
+        &__grid {
+            grid-template-columns: repeat(4, 300px);
+            grid-template-rows: 239px 318px 239px;
+        }
+        &__element {
+            min-height: auto;
+            background-position: center;
+        }
+    }
+    .blog {
+        &__box {
+            grid-template-columns: repeat(4, 300px);
+            grid-template-rows: repeat(3, 275.2px);
+        }
+        &__element {
+            min-height: auto;
+        }
+    }
+    .footer {
+        width: 1200px;
+    }
+}
