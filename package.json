@@ -1,0 +1,23 @@
+{
+  "name": "webdev-challenge-23",
+  "version": "1.0.0",
+  "description": "![Main screen](img/WebDevChallengeView.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaciejSpalek/SimpleWebsite.git"
+  },
+  "author": "Maciej Spałek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaciejSpalek/SimpleWebsite/issues"
+  },
+  "homepage": "https://github.com/MaciejSpalek/SimpleWebsite#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}

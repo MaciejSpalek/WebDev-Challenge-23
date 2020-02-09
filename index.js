@@ -61,6 +61,7 @@ crossClick();
 navElementClick();
 arrowClick();
 windowListener();
+
 $($arrow).fadeOut(0);
 if(media.matches) {
     $($navbar).css("display", "flex").fadeIn(0)
